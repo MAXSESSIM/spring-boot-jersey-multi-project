@@ -3,11 +3,9 @@ pipeline {
     
     stages {
         stage('Build') {
-            agent { 
-                docker { image 'java:openjdk-8-jdk' } 
-            } 
             steps { 
-                sh 'ls'
+                ./gradlew clean build
+                sh 'ls -R'
 
             }
 
